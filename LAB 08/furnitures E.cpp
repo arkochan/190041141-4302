@@ -30,6 +30,7 @@ enum class AlmirahSize
 };
 class Furniture
 {
+
 protected:
     double price;
     double discount;
@@ -37,6 +38,7 @@ protected:
     string name;
 
 public:
+    static Furniture *f_list[100];
     Furniture(double p, double d, Material m, string n) : price(0), discount(0), name(n), madeof(Material::Wood)
     {
         setPrice(p);
@@ -198,16 +200,15 @@ void sort_furniture_discount(Furniture **furnitures, int no_of_furnitures)
 int main()
 {
 
-    Furniture *f_list[100];
-
     /**
         task 1
         So that following lines can be executed without error
     */
-    f_list[0] = new Bed(10000, 123, Material::Wood, BedSize::Single, "x");
-    f_list[1] = new Sofa(11000, 234, Material::Steel, SofaSize::Five, "y");
-    f_list[2] = new Almirah(13000, 345, Material::Wood, AlmirahSize::Two, "z");
-    f_list[3] = new Bed(10090, 123, Material::Wood, BedSize::Single, "c");
+
+    Furniture::f_list[0] = new Bed(10000, 123, Material::Wood, BedSize::Single, "x");
+    Furniture::f_list[1] = new Sofa(11000, 234, Material::Steel, SofaSize::Five, "y");
+    Furniture::f_list[2] = new Almirah(13000, 345, Material::Wood, AlmirahSize::Two, "z");
+    Furniture::f_list[3] = new Bed(10090, 123, Material::Wood, BedSize::Single, "c");
 
     /**task 1 ends here*/
 
@@ -217,10 +218,10 @@ int main()
 
         task 3 (Modify productDetails)
     */
-    f_list[2]->setDiscuntPercentage(30);
+    Furniture::f_list[2]->setDiscuntPercentage(30);
     for (int i = 0; i < 4; i++)
     {
-        f_list[i]->productDetails();
+        Furniture::f_list[i]->productDetails();
         cout << "####################" << endl;
     }
 
@@ -230,16 +231,16 @@ int main()
     /**task 4
     So that following lines can be executed without error
     */
-    sort_furniture_discount(f_list, 4);
+    sort_furniture_discount(Furniture::f_list, 4);
     cout << ".........................." << endl;
     for (int i = 0; i < 4; i++)
     {
-        f_list[i]->productDetails();
+        Furniture::f_list[i]->productDetails();
         cout << "####################" << endl;
     }
     for (int i = 0; i < 4; i++)
     {
-        delete f_list[i];
+        delete Furniture::f_list[i];
     }
     /**task 4 ends here*/
 }

@@ -1,0 +1,1 @@
+{"name":"Local: yes","url":"h:\\My Drive\\Academics\\4302\\LAB 13\\yes.cpp","tests":[{"id":1633684877587,"input":"a\nm\nmangerman\n11\nyes\n11\na\ns\narko\n11\n10\na\nl\narko\n10\nd\nx","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"h:\\My Drive\\Academics\\4302\\LAB 13\\yes.cpp","group":"local","local":true}
